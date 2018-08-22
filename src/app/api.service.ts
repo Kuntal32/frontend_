@@ -10,6 +10,7 @@ export class ApiService {
 
   registerUser(user) {
    this.http.post('http://localhost:3000/register', user).subscribe(res => {
+    console.log(res);
    });
   }
 }
