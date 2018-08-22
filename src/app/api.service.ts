@@ -13,4 +13,8 @@ export class ApiService {
     console.log(res);
    });
   }
+
+  userLogin(userData) {
+    return this.http.post('http://localhost:3000/login', userData);
+  }
 }
