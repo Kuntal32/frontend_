@@ -1,1 +1,9 @@
 .toolbar{background: lightblue;}
+.logout{
+    background: red;
+    color: white;
+    cursor: pointer; 
+    margin:10px; 
+    padding-left: 10px;
+    padding-right: 10px;
+}

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -10,7 +10,9 @@ import { MatButtonModule, MatCardModule, MatToolbarModule, MatInputModule } from
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { TokenIntercepterService } from './token-intercepter.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -18,8 +20,9 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     NavbarComponent,
     RegisterComponent,
-    LoginComponent
-  ],
+    LoginComponent,
+    DashboardComponent
+   ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -29,9 +32,14 @@ import { LoginComponent } from './login/login.component';
     MatButtonModule,
     MatCardModule,
     MatToolbarModule,
-    MatInputModule
+    MatInputModule,
+    NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenIntercepterService,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

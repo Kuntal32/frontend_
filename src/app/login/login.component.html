@@ -1,3 +1,6 @@
+<p>
+  <ngb-alert [dismissible]="false"  *ngIf="message"><strong>Warning! </strong> {{message}}</ngb-alert>
+</p>
 <mat-card>
     <mat-card-title>Log In</mat-card-title>
     <mat-card-content>
@@ -12,7 +15,7 @@
               <mat-error *ngIf="password.invalid">Please Enter Password</mat-error>
           </mat-form-field>
           <br>
-          <input type="submit"  value="Login" mat-raised-button />
+          <input type="submit" class="btn-primary"  value="Login" ngbButton  />
       </form>
     </mat-card-content>
 </mat-card>
