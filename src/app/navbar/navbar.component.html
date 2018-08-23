@@ -1,10 +1,10 @@
 <mat-toolbar class="toolbar">
-    <span routerLink = '/'>Flowers</span>
+    <span class="header_text" routerLink = '/login'>Flowers</span>
     <span style = "flex: 1 1 auto;"></span>
     
-    <a *ngIf="!apiService.LoggedIn()" routerLink = '/login'>Log in</a> 
-    <a *ngIf="!apiService.LoggedIn()" routerLink = '/register'>Register</a> 
-    <span *ngIf="apiService.LoggedIn()">{{apiService.getUserName()}}</span>
+    <a *ngIf="!apiService.LoggedIn()" class="nav-div" routerLink = '/login'>Log in</a> 
+    <a *ngIf="!apiService.LoggedIn()" class="nav-div" routerLink = '/register'>Register</a> 
+    <span *ngIf="apiService.LoggedIn()" class="nav-div">{{apiService.getUserName()}}</span>
     <a *ngIf="apiService.LoggedIn()" class="logout" (click)="apiService.logout()">Log out</a> 
 </mat-toolbar>
 
