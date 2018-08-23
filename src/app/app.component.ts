@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import {ApiService} from './api.service';
 
 
 @Component({
@@ -9,5 +11,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Flowers';
 
-  constructor() {}
+  constructor(private router: Router, private apiService: ApiService) {}
+
+  // tslint:disable-next-line:use-life-cycle-interface
+  ngOnInit() {
+    if (this.apiService.LoggedIn()) {
+      this.router.navigate(['dashboard']);
+    } else {
+      this.router.navigate(['login']);
+    }
+  }
 }
