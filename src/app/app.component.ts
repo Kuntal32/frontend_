@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {ApiService} from './api.service';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -11,14 +12,18 @@ import {ApiService} from './api.service';
 export class AppComponent {
   title = 'Flowers';
 
-  constructor(private router: Router, private apiService: ApiService) {}
+  constructor(private router: Router, private apiService: ApiService, private location: Location) {}
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit() {
     if (this.apiService.LoggedIn()) {
-      this.router.navigate(['dashboard']);
+      if (location.pathname === '/' || location.pathname === '/flower/') {
+       this.router.navigate(['dashboard']);
+      }
     } else {
-      this.router.navigate(['login']);
+      if (location.pathname === '/' || location.pathname === '/flower/') {
+       this.router.navigate(['login']);
+      }
     }
   }
 }

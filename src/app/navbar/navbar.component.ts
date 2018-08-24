@@ -7,7 +7,7 @@ import {ApiService} from '../api.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private apiService: ApiService) { }
+  constructor(public apiService: ApiService) { }
 
   ngOnInit() {
   }

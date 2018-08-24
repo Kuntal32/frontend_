@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   constructor(private dashBoardSearvice: DashboardService, private router: Router) { }
-
+  public users = [];
   ngOnInit() {
     this.dashBoardSearvice.getUsers().subscribe(data => {
-      console.log(data);
+      this.users = data;
     }, err => {
       if (err instanceof HttpErrorResponse) {
         if (err.status === 401) {

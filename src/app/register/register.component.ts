@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private apiService: ApiService, private router: Router) { }
 
-  private message = '';
+  public message = '';
   ngOnInit() {
     if (this.apiService.LoggedIn()) {
       this.router.navigate(['dashboard']);

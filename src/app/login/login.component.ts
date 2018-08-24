@@ -13,7 +13,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
 
-  private message = '';
+  public message = '';
   constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit() {
@@ -28,12 +28,13 @@ export class LoginComponent implements OnInit {
     }
 
     this.apiService.userLogin(userData.value).subscribe(data => {
-      const helper = new JwtHelperService();
       if (data.status) {
         localStorage.setItem('token', data.token);
-        /* const decoded = helper.decodeToken(data.token);
+        /*
+        const helper = new JwtHelperService();
+        const decoded = helper.decodeToken(data.token);
         console.log(decoded);
-        console.log(helper.isTokenExpired(data.token)); */
+        console.log(helper.isTokenExpired(data.token));*/
         this.router.navigate(['dashboard']);
       }
     }, err => {
