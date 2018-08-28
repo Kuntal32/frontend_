@@ -6,10 +6,10 @@ import {ApiService} from '../api.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  logo: string;
   constructor(public apiService: ApiService) { }
-
   ngOnInit() {
+    this.logo = '/assets/images.jpg';
   }
 
 

@@ -14,9 +14,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     const helper = new JwtHelperService();
     const decoded = helper.decodeToken(localStorage.getItem('token'));
-    this.profileService.getProfileInfo(decoded.id).subscribe(data => {
-      this.userData = data;
-    });
+    this.profileService.getProfileInfo(decoded.id).subscribe(data => this.userData = data);
   }
 
 }

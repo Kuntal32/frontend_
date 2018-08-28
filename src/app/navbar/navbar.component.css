@@ -1,18 +1,6 @@
-.toolbar{background:black;}
-.logout{
-    background: red;
-    color: white;
-    cursor: pointer; 
-    margin:10px; 
-    padding-left: 10px;
-    padding-right: 10px;
-}
-.header_text{
-    color:white;
-    cursor: pointer;
-}
-.nav-div{
-    color:white;
-    margin-left: 5px;
+.logo{
+    width: 24px;
+    height: 24px;
+    margin-bottom: 1px;
     margin-right: 5px;
 }
