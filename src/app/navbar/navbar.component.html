@@ -4,6 +4,7 @@
     
     <a *ngIf="!apiService.LoggedIn()" class="nav-div" routerLink = '/login'>Log in</a> 
     <a *ngIf="!apiService.LoggedIn()" class="nav-div" routerLink = '/register'>Register</a> 
+    
 
     <button *ngIf="apiService.LoggedIn()" class="nav-div" mat-button [matMenuTriggerFor]="menu">{{apiService.getUserName()}}</button>
     <mat-menu #menu="matMenu">

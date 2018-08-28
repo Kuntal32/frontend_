@@ -16,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileComponent } from './profile/profile.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,7 @@ import { ProfileComponent } from './profile/profile.component';
     LoginComponent,
     DashboardComponent,
     ProfileComponent
-   ],
+  ],
   imports: [
     BrowserModule,
     FormsModule,
