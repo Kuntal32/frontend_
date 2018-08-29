@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from '../api.service';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -7,9 +8,13 @@ import {ApiService} from '../api.service';
 })
 export class NavbarComponent implements OnInit {
   logo: string;
-  constructor(public apiService: ApiService) { }
+  constructor(public apiService: ApiService, private location: Location) { }
   ngOnInit() {
-    this.logo = '/assets/images.jpg';
+    if (location.pathname.split('/')[1] === 'flower') {
+      this.logo = '/flower/assets/images.jpg';
+    } else {
+      this.logo = '/assets/images.jpg';
+    }
   }
 
 

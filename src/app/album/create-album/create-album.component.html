@@ -1,0 +1,23 @@
+<p>
+    <ngb-alert [dismissible]="false"  *ngIf="message"><strong>Warning! </strong> {{message}}</ngb-alert>
+  </p>
+<div class="container">
+    <mat-card>
+        <mat-card-title>Create Album</mat-card-title>
+        <mat-card-content>
+          <form id="formData" #albumData="ngForm" (ngSubmit)="createAlbum(albumData)">
+                <mat-form-field>
+                  <input matInput placeholder="Enter Title" name="title" ngModel #title="ngModel" type="text" required>
+                  <mat-error *ngIf="title.invalid">Please Enter Title</mat-error>
+                </mat-form-field>
+              <br>
+                <mat-form-field >
+                  <textarea matInput  name="description" ngModel #description="ngModel" placeholder="Album Description" required></textarea>
+                  <mat-error *ngIf="description.invalid">Please Enter Description</mat-error>
+                </mat-form-field>
+              <br>
+              <button type="submit" mat-raised-button color="primary"  ngbButton >Create Album</button>
+          </form>
+        </mat-card-content>
+    </mat-card>
+</div>    

@@ -11,6 +11,7 @@
     <mat-menu #menu="matMenu">
       <button mat-menu-item><a routerLink="/dashboard">Dashboard</a></button>
       <button mat-menu-item><a routerLink="/profile">Profile</a></button>
+      <button mat-menu-item><a routerLink="/album">Album</a></button>
       <button mat-menu-item><a *ngIf="apiService.LoggedIn()"  (click)="apiService.logout()">Log out</a> </button>
     </mat-menu>
   </mat-toolbar-row>  

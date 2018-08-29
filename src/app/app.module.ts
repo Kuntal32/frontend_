@@ -14,6 +14,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TokenIntercepterService } from './token-intercepter.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileComponent } from './profile/profile.component';
+import { AlbumComponent } from './album/album.component';
+import { CreateAlbumComponent } from './album/create-album/create-album.component';
+import { ImagesComponent } from './album/images/images.component';
 
 
 
@@ -24,7 +27,10 @@ import { ProfileComponent } from './profile/profile.component';
     RegisterComponent,
     LoginComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    AlbumComponent,
+    CreateAlbumComponent,
+    ImagesComponent
   ],
   imports: [
     BrowserModule,

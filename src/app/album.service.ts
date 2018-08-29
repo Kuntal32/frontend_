@@ -1,27 +1,30 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { IProfile } from './profile';
+import { HttpClient } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
-
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProfileService {
+export class AlbumService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   private log(message: string) {
     console.log(message);
   }
-  getProfileInfo(id) {
-    return this.httpClient.get<any>('http://localhost:3000/profile/' + id)
-          .pipe(
-            tap(_ => this.log(`fetched profile id=${id}`)),
-            catchError(this.handleError<any>(`get profile id=${id}`))
-          );
+
+  createAlbum (albumData) {
+    return this.http.post<any>('http://localhost:3000/CreateAlbum', albumData);
+  }
+
+  GetAlbumByUser (id) {
+    return this.http.get<any>('http://localhost:3000/GetAlbums/' + id)
+    .pipe(
+      tap(_ => this.log(`fetched albums id=${id}`)),
+      catchError(this.handleError<any>(`get albums id=${id}`))
+    );
   }
 
   private handleError<T> (operation = 'operation', result?: T) {
@@ -31,5 +34,4 @@ export class ProfileService {
         return of(result as T);
     };
   }
-
 }
