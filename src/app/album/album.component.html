@@ -15,6 +15,11 @@
             </div> 
            
           </div>
+          <mat-paginator [length]="length"
+              [pageSize]="pageSize"
+              [pageSizeOptions]="pageSizeOptions"
+              (page)="pageEvent = getAlbums($event)">
+          </mat-paginator>
       </mat-card-content>
   </mat-card>
 </div>

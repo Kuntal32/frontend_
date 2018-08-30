@@ -6,7 +6,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { MatButtonModule, MatCardModule, MatToolbarModule, MatInputModule, MatMenuModule, MatTableModule } from '@angular/material';
+import {
+         MatButtonModule,
+         MatCardModule,
+         MatToolbarModule,
+         MatInputModule,
+         MatMenuModule,
+         MatTableModule,
+         MatPaginatorModule
+        } from '@angular/material';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -44,6 +52,7 @@ import { ImagesComponent } from './album/images/images.component';
     MatInputModule,
     MatMenuModule,
     MatTableModule,
+    MatPaginatorModule,
     NgbModule.forRoot()
   ],
   providers: [{

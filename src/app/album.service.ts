@@ -19,8 +19,8 @@ export class AlbumService {
     return this.http.post<any>('http://localhost:3000/CreateAlbum', albumData);
   }
 
-  GetAlbumByUser (id) {
-    return this.http.get<any>('http://localhost:3000/GetAlbums/' + id)
+  GetAlbumByUser (id, pageIndex, pageSize) {
+    return this.http.get<any>('http://localhost:3000/GetAlbums/' + id + '/' + pageIndex + '/' + pageSize)
     .pipe(
       tap(_ => this.log(`fetched albums id=${id}`)),
       catchError(this.handleError<any>(`get albums id=${id}`))
