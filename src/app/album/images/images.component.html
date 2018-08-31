@@ -1,3 +1,16 @@
-<p>
-  images works!
-</p>
+<div class="container">
+  <mat-card>
+      <mat-card-content>
+        <div class="Upload_Images">
+           <!--<button matTooltip="Upload Images"  mat-raised-button color="primary" >Upload Images</button>-->
+           <input type="file" name="photo" (change)="uploader.uploadAll()"  mat-raised-button ng2FileSelect [uploader]="uploader" />
+
+           <!--<button type="button" class="btn btn-success btn-s" 
+             (click)="uploader.uploadAll()" 
+             [disabled]="!uploader.getNotUploadedItems().length" >
+                 Upload an Image
+           </button>-->
+          </div>
+      </mat-card-content>
+  </mat-card>
+</div>

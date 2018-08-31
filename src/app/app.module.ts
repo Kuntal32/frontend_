@@ -13,7 +13,9 @@ import {
          MatInputModule,
          MatMenuModule,
          MatTableModule,
-         MatPaginatorModule
+         MatPaginatorModule,
+         MatTooltipModule,
+         MatDialogModule
         } from '@angular/material';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
@@ -25,6 +27,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AlbumComponent } from './album/album.component';
 import { CreateAlbumComponent } from './album/create-album/create-album.component';
 import { ImagesComponent } from './album/images/images.component';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 
 
@@ -38,7 +41,8 @@ import { ImagesComponent } from './album/images/images.component';
     ProfileComponent,
     AlbumComponent,
     CreateAlbumComponent,
-    ImagesComponent
+    ImagesComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
@@ -53,6 +57,8 @@ import { ImagesComponent } from './album/images/images.component';
     MatMenuModule,
     MatTableModule,
     MatPaginatorModule,
+    MatTooltipModule,
+    MatDialogModule,
     NgbModule.forRoot()
   ],
   providers: [{
