@@ -19,13 +19,14 @@ interface myData {
 export class ApiService {
 
   constructor(private http: HttpClient, private router: Router) { }
+  private BASE_URL = 'https://gflower.herokuapp.com/';
 
   registerUser(user) {
-   return this.http.post<any>('http://localhost:3000/register', user);
+   return this.http.post<any>(this.BASE_URL + 'register', user);
   }
 
   userLogin(userData) {
-    return this.http.post<myData>('http://localhost:3000/login', userData);
+    return this.http.post<myData>(this.BASE_URL + 'login', userData);
   }
 
   LoggedIn() {
