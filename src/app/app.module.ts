@@ -61,7 +61,7 @@ import { FileSelectDirective } from 'ng2-file-upload';
     MatDialogModule,
     NgbModule.forRoot()
   ],
-  providers: [{
+ providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenIntercepterService,
     multi: true,
