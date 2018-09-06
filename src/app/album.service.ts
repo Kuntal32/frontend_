@@ -37,7 +37,7 @@ export class AlbumService {
     };
   }
 
-  uploadImage (uploader) {
+  uploadImage (uploader, ObjectId) {
         const authHeader: Array<{
         name: string;
         value: string;
@@ -45,9 +45,18 @@ export class AlbumService {
         authHeader.push({name: 'Authorization', value: 'Bearer ' + this.apiService.getToken()});
         const uploadOptions = <FileUploaderOptions>{headers : authHeader};
         uploader.setOptions(uploadOptions);
+        uploader.setOptions({additionalParameter: {ObjectId: ObjectId}});
         uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
         uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
          console.log('ImageUpload:uploaded:', item, status, response);
      };
+  }
+
+  getImageByAlbum(albumId, pageIndex, pageSize) {
+    return this.http.get<any>('http://localhost:3000/GetAlbumImageByAlbum/' + albumId + '/' + pageIndex + '/' + pageSize)
+    .pipe(
+      tap(_ => this.log(`fetched images of albums=${albumId}`)),
+      catchError(this.handleError<any>(`fetched images of albums==${albumId}`))
+    );
   }
 }

@@ -27,23 +27,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { AlbumComponent } from './album/album.component';
 import { CreateAlbumComponent } from './album/create-album/create-album.component';
 import { ImagesComponent } from './album/images/images.component';
-import { FileSelectDirective } from 'ng2-file-upload';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    RegisterComponent,
-    LoginComponent,
-    DashboardComponent,
-    ProfileComponent,
-    AlbumComponent,
-    CreateAlbumComponent,
-    ImagesComponent,
-    FileSelectDirective
-  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -59,7 +47,19 @@ import { FileSelectDirective } from 'ng2-file-upload';
     MatPaginatorModule,
     MatTooltipModule,
     MatDialogModule,
+    FileUploadModule,
     NgbModule.forRoot()
+  ],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    RegisterComponent,
+    LoginComponent,
+    DashboardComponent,
+    ProfileComponent,
+    AlbumComponent,
+    CreateAlbumComponent,
+    ImagesComponent
   ],
  providers: [{
     provide: HTTP_INTERCEPTORS,

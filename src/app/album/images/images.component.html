@@ -1,16 +1,31 @@
 <div class="container">
   <mat-card>
       <mat-card-content>
-        <div class="Upload_Images">
-           <!--<button matTooltip="Upload Images"  mat-raised-button color="primary" >Upload Images</button>-->
-           <input type="file" name="photo" (change)="uploader.uploadAll()"  mat-raised-button ng2FileSelect [uploader]="uploader" />
-
-           <!--<button type="button" class="btn btn-success btn-s" 
-             (click)="uploader.uploadAll()" 
-             [disabled]="!uploader.getNotUploadedItems().length" >
-                 Upload an Image
-           </button>-->
+          <div class="go_back">
+             <button matTooltip="Go Back"  mat-raised-button color="primary" routerLink="/album">Go Back</button>
           </div>
+        </mat-card-content>
+      <mat-card-content>
+        <div class="Upload_Images">
+           <input type="file" name="photo" (change)="uploader.uploadAll()"  mat-raised-button ng2FileSelect [uploader]="uploader" />
+        </div>
+      </mat-card-content>
+      <mat-card-content>
+            <div class="row"> 
+                    <div class="col-md-3 col-xs-6" *ngFor="let image of ImageData"> 
+                            {{image.imagename}}
+                      <a [routerLink]="['/images',image._id]" routerLinkActive="router-link-active"  routerLinkActive="router-link-active"  class="thumbnail"> 
+                        <img alt="100%x180" data-src="holder.js/100%x180" style="height: 180px; width: 100%; display: block;" src="" data-holder-rendered="true"> 
+                      </a> 
+                      
+                    </div> 
+                   
+                  </div>
+                  <mat-paginator [length]="length"
+                      [pageSize]="pageSize"
+                      [pageSizeOptions]="pageSizeOptions"
+                      (page)="pageEvent = getAlbumImage($event)">
+                  </mat-paginator>
       </mat-card-content>
   </mat-card>
 </div>
